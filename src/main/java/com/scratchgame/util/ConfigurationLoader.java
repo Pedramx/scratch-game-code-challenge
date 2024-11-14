@@ -17,6 +17,10 @@ public class ConfigurationLoader {
     private static Configuration enrichConfig(Configuration configuration) {
         var winningCombination = configuration.getWin_combinations();
 
+        if (winningCombination == null) {
+            return configuration;
+        }
+
         for (String combName : winningCombination.keySet()) {
             var combination = winningCombination.get(combName);
             combination.setName(combName);

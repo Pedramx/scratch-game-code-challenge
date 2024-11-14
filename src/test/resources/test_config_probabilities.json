@@ -1,0 +1,41 @@
+{
+  "rows": 3,
+  "columns": 3,
+  "symbols": {
+    "A": {
+      "type": "standard",
+      "reward_multiplier": 5
+    },
+    "B": {
+      "type": "standard",
+      "reward_multiplier": 3
+    },
+    "C": {
+      "type": "standard",
+      "reward_multiplier": 2
+    },
+    "10x": {
+      "type": "bonus",
+      "impact": "multiply_reward",
+      "reward_multiplier": 10
+    }
+  },
+  "probabilities": {
+    "standard_symbols": [
+      {
+        "column": 0,
+        "row": 0,
+        "symbols": {
+          "A": 5,
+          "B": 3,
+          "C": 2
+        }
+      }
+    ],
+    "bonus_symbols": {
+      "symbols": {
+        "10x": 1
+      }
+    }
+  }
+}

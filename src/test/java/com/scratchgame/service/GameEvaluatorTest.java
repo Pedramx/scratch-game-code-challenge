@@ -1,10 +1,6 @@
-// src/test/java/com/scratchgame/GameEvaluatorTest.java
-
-package com.scratchgame;
+package com.scratchgame.service;
 
 import com.scratchgame.model.Configuration;
-import com.scratchgame.service.GameEvaluator;
-import com.scratchgame.service.GameResult;
 import com.scratchgame.util.ConfigurationLoader;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

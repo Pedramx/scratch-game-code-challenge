@@ -20,7 +20,7 @@ public class Main {
 
             // Generate matrix
             MatrixGenerator generator = new MatrixGenerator(config);
-            String[][] matrix = generator.generateMatrix();
+            String[][] matrix = generator.generate();
 
             // Evaluate game
             GameEvaluator evaluator = new GameEvaluator(config);
