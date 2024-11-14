@@ -12,6 +12,6 @@ public class WinningCombination {
     private Double reward_multiplier;
     private String when;
     private Integer count;
-    private String group; // TODO: make it an enum
+    private String group;
     private List<List<String>> covered_areas;
 }

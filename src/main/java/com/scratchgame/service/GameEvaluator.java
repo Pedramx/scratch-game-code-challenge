@@ -1,5 +1,7 @@
 package com.scratchgame.service;
 
+import com.scratchgame.enums.SymbolImpactEnum;
+import com.scratchgame.enums.SymbolTypeEnum;
 import com.scratchgame.model.Configuration;
 import com.scratchgame.model.Symbol;
 import com.scratchgame.model.WinningCombination;
@@ -33,7 +35,7 @@ public class GameEvaluator {
             for (int col = 0; col < columns; col++) {
                 String symbol = matrix[row][col];
                 Symbol symbolConfig = config.getSymbols().get(symbol);
-                if (symbolConfig != null && symbolConfig.getType().equals("standard")) {
+                if (symbolConfig != null && symbolConfig.getType().equals(SymbolTypeEnum.standard)) {
                     symbolCounts.put(symbol, symbolCounts.getOrDefault(symbol, 0) + 1);
                     String position = row + ":" + col;
                     symbolPositions.computeIfAbsent(symbol, k -> new ArrayList<>()).add(position);
@@ -102,14 +104,14 @@ public class GameEvaluator {
         String bonusSymbol = findBonusSymbol(matrix);
         if (bonusSymbol != null && totalReward > 0) {
             Symbol bonusSymbolConfig = config.getSymbols().get(bonusSymbol);
-            if (bonusSymbolConfig != null && bonusSymbolConfig.getType().equals("bonus")) {
+            if (bonusSymbolConfig != null && bonusSymbolConfig.getType().equals(SymbolTypeEnum.bonus)) {
                 appliedBonusSymbol = bonusSymbol;
-                String impact = bonusSymbolConfig.getImpact();
-                if (impact.equals("multiply_reward")) {
+                SymbolImpactEnum impact = bonusSymbolConfig.getImpact();
+                if (impact.equals(SymbolImpactEnum.multiply_reward)) {
                     totalReward *= bonusSymbolConfig.getReward_multiplier();
-                } else if (impact.equals("extra_bonus")) {
+                } else if (impact.equals(SymbolImpactEnum.extra_bonus)) {
                     totalReward += bonusSymbolConfig.getExtra();
-                } else if (impact.equals("miss")) {
+                } else if (impact.equals(SymbolImpactEnum.miss)) {
                     // Do nothing
                 }
             }
@@ -125,7 +127,7 @@ public class GameEvaluator {
             for (int col = 0; col < columns; col++) {
                 String symbol = matrix[row][col];
                 Symbol symbolConfig = config.getSymbols().get(symbol);
-                if (symbolConfig != null && symbolConfig.getType().equals("bonus")) {
+                if (symbolConfig != null && symbolConfig.getType().equals(SymbolTypeEnum.bonus)) {
                     return symbol;
                 }
             }

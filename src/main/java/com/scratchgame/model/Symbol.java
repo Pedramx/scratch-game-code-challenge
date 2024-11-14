@@ -1,13 +1,15 @@
 package com.scratchgame.model;
 
+import com.scratchgame.enums.SymbolImpactEnum;
+import com.scratchgame.enums.SymbolTypeEnum;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class Symbol {
-    private String type; // "standard" or "bonus"
+    private SymbolTypeEnum type;
     private Double reward_multiplier;
-    private String impact; // TODO: make it enum
+    private SymbolImpactEnum impact;
     private Integer extra;
 }
