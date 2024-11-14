@@ -149,23 +149,34 @@ Common issues and solutions:
    - Increase JVM heap size: `-Xmx4g`
    - Monitor memory usage with JConsole
 
-## Monitoring
+## Performance Testing with JMH
 
-### JMX Monitoring
+The project uses JMH (Java Microbenchmark Harness) for performance testing.
 
-Enable JMX monitoring:
+### Running JMH Benchmarks
+
+Run the JMH benchmarks using:
 ```
-java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -jar scratch-game-code-challenge-1.0-SNAPSHOT-jar-with-dependencies.jar --config config.json --betting-amount 100
+mvn clean verify -P benchmark
 ```
 
-### Metrics
+### Available Benchmarks
 
-The application exposes the following metrics:
-- Games played per second
-- Win/loss ratio
-- Average payout
-- Memory usage
-- Response time percentiles
+The benchmarks measure:
+- Matrix operations efficiency
+
+### Sample Benchmark Results
+
+```
+
+### Interpreting Results
+
+- **Mode**: Testing mode (throughput/average time/sample time)
+- **Cnt**: Number of iterations
+- **Score**: The benchmark score
+- **Error**: Error margin
+- **Units**: Measurement units (operations/second, milliseconds, etc.)
+```
 
 ## Contributing
 
