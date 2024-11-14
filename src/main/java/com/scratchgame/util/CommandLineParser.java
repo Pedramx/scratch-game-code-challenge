@@ -30,4 +30,15 @@ public class CommandLineParser {
     public double getBettingAmount() {
         return bettingAmount;
     }
+
+    public String getConfigFileRelativePath() {
+        String basePath = "src/main/resources/";
+        String path = this.getConfigFilePath();
+
+        if (path.startsWith(basePath)) {
+            return path;
+        }
+
+        return basePath + path;
+    }
 }
