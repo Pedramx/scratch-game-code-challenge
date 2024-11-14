@@ -153,31 +153,6 @@ Common issues and solutions:
 
 The project uses JMH (Java Microbenchmark Harness) for performance testing.
 
-### Running JMH Benchmarks
-
-Run the JMH benchmarks using:
-```
-mvn clean verify -P benchmark
-```
-
-### Available Benchmarks
-
-The benchmarks measure:
-- Matrix operations efficiency
-
-### Sample Benchmark Results
-
-```
-
-### Interpreting Results
-
-- **Mode**: Testing mode (throughput/average time/sample time)
-- **Cnt**: Number of iterations
-- **Score**: The benchmark score
-- **Error**: Error margin
-- **Units**: Measurement units (operations/second, milliseconds, etc.)
-```
-
 ## Contributing
 
 1. Fork the repository
